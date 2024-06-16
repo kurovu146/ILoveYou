@@ -425,9 +425,24 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 $(document).ready(function() {
-  $("#flipbook").turn({
-      width: 800,
+  var flipbook = $("#flipbook");
+
+  flipbook.turn({
+      width: 400, // Total width for two pages
       height: 600,
-      autoCenter: true
+      autoCenter: true,
+      duration: 1000,
+      display: 'single'
+  });
+
+  // Sử dụng Hammer.js để nhận diện các thao tác vuốt
+  var mc = new Hammer(flipbook[0]);
+
+  mc.on("swipeleft", function() {
+      flipbook.turn('next');
+  });
+
+  mc.on("swiperight", function() {
+      flipbook.turn('previous');
   });
 });

@@ -31,6 +31,7 @@ html, body {
 }
 
 .mo-container {
+  top: 0;
   width: 100%;
   height: 100%;
 }
@@ -61,18 +62,20 @@ html, body {
 }
 
 #flipbook {
-  width: 400px;
-  height: 300px;
+  width: 400px; /* Chiều rộng cho mỗi trang sách */
+  height: 600px; /* Chiều cao cho mỗi trang sách */
+  position: relative;
 }
 
-#flipbook .hard {
-  background: #fff;
+#flipbook .page {
+  width: 400px; /* Chiều rộng cho mỗi trang sách */
+  height: 600px; /* Chiều cao cho mỗi trang sách */
+  background: white;
   border: 1px solid #ccc;
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  page-break-after: always;
 }
 
 #flipbook img {
