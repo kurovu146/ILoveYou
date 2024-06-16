@@ -16,7 +16,8 @@ html, body {
 }
 
 .header {
-
+  position: fixed;
+  top: 10%;
 }
 
 .container {
