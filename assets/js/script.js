@@ -428,8 +428,6 @@ $(document).ready(function() {
   var flipbook = $("#flipbook");
 
   flipbook.turn({
-      width: 400, // Total width for two pages
-      height: 600,
       autoCenter: true,
       duration: 1000,
       display: 'single'
