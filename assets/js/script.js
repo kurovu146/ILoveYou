@@ -412,16 +412,33 @@ const toggleSound = () => {
 el.sound.addEventListener('click', toggleSound());
 
 document.addEventListener('DOMContentLoaded', function() {
-  var audio = document.getElementById('myAudio');
-  var playButton = document.getElementById('playAudio');
+  const audio = document.getElementById('myAudio');
+  const popup = document.getElementById('popup');
+  const closeBtn = document.querySelector('.close-btn');
 
-  playButton.addEventListener('click', function() {
-    console.log('clicked');
+  // Hiển thị popup ngay khi trang được tải
+  setTimeout(() => {
+    popup.classList.remove('hidden');
+  }, 500); // Thời gian chờ 500ms để tạo hiệu ứng mượt hơn
+
+  closeBtn.addEventListener('click', function() {
+    audio.muted = false;
+    audio.play().catch(function(error) {
+        console.log("Autoplay was prevented: " + error);
+    });
+    popup.classList.add('hidden');
+  });
+
+  window.addEventListener('click', function(event) {
+    if (event.target === popup) {
       audio.muted = false;
       audio.play().catch(function(error) {
           console.log("Autoplay was prevented: " + error);
       });
+      popup.classList.add('hidden');
+    }
   });
+
 });
 
 $(document).ready(function() {
